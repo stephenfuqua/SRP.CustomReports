@@ -24,7 +24,7 @@ namespace SRP.CustomReports.WPF
 
             SrpContext InitializeDatabaseConnection()
             {
-                var srpMdf = Properties.Settings.Default.PathToSrp;
+                var srpMdf = Path.Combine(Properties.Settings.Default.PathToSrp,"SRP.mdf");
                 var connectionString = $"Data Source=(localdb)\\SRP;Initial Catalog={srpMdf};Integrated Security=SSPI";
 
                 return new SrpContext(connectionString);

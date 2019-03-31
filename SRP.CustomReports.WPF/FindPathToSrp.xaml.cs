@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Windows;
-using Microsoft.Win32;
+using WK.Libraries.BetterFolderBrowserNS;
 
 namespace SRP.CustomReports.WPF
 {
@@ -21,14 +21,15 @@ namespace SRP.CustomReports.WPF
         {
             var appDataPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
 
-            var openFileDialog = new OpenFileDialog
+            var openFileDialog = new BetterFolderBrowser
             {
-                Filter = "SRP.mdf|SRP.mdf",
-                InitialDirectory = System.IO.Path.Combine(appDataPath,"SRP")
+                Title="Select folder containing SRP.mdf",
+                RootFolder = System.IO.Path.Combine(appDataPath,"SRP"),
+
             };
-            if (openFileDialog.ShowDialog() == true)
+            if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                PathToSrp.Text = openFileDialog.FileName;
+                PathToSrp.Text = openFileDialog.SelectedFolder;
             }
         }
 
