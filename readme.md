@@ -1,5 +1,11 @@
 # SRP.CustomReports
 
+| :warning: No longer useful |
+| -- |
+| The change to SRP Online eliminated the ability to interact directly with the database, making this program no longer useful. The repository is therefore being archived. |
+
+---
+
 This sample application is currently a proof-of-concept for distributing custom
 SRP reports out to Cluster Statistics Officers. 
 
