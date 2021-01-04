@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using SRP.CustomReports.WPF.Entities;
 
@@ -7,12 +9,31 @@ namespace SRP.CustomReports.WPF.Queries
 {
     public class SrpContext : DbContext
     {
+        private static string ConnectionString
+        {
+            get
+            {
+                if (string.IsNullOrWhiteSpace(Properties.Settings.Default.PathToSrp))
+                {
+                    Properties.Settings.Default.PathToSrp =
+                        Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "SRP");
+                }
+
+                var srpMdf = Path.Combine(Properties.Settings.Default.PathToSrp, "SRP.mdf");
+                return $"Data Source=(localdb)\\SRP;Initial Catalog={srpMdf};Integrated Security=SSPI";
+            }
+        }
+
         public DbSet<Cluster> Clusters { get; set; }
 
+        public DbSet<Grouping> Groupings { get; set; }
 
-        public SrpContext(string connectionString) : base(connectionString)
+        public DbSet<ClusterGrouping> ClusterGroupings { get; set; }
+
+        public DbSet<YouthContinuum> YouthOnContinuum { get; set; }
+
+        public SrpContext() : base(ConnectionString)
         {
-            
         }
 
 
@@ -63,6 +84,11 @@ namespace SRP.CustomReports.WPF.Queries
         {
             var query = Database.SqlQuery<TElement>(sql, parameters);
             return query.ToList();
+        }
+
+        public DbContextTransaction BeginTransaction()
+        {
+            return Database.BeginTransaction();
         }
     }
 }

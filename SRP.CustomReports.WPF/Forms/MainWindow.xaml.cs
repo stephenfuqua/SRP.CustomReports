@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace SRP.CustomReports.WPF
+namespace SRP.CustomReports.WPF.Forms
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -14,12 +14,12 @@ namespace SRP.CustomReports.WPF
 
         private void Setup_Click(object sender, RoutedEventArgs e)
         {
-            new FindPathToSrp().ShowDialog();
+            new Forms.FindPathToSrp().ShowDialog();
         }
 
         private void BuildReport_OnClick(object sender, RoutedEventArgs e)
         {
-            new BuildReport().ShowDialog();
+            new Forms.BuildReport().ShowDialog();
         }
 
         private void Hyperlink_RequestNavigate(object sender, System.Windows.Navigation.RequestNavigateEventArgs e)

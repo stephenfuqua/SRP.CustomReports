@@ -1,48 +1,71 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace SRP.CustomReports.WPF.Entities
 {
+    [Table("YouthContinuum")]
     public class YouthContinuum
     {
+        [Key]
+        public long Id { get; set; }
+
         public string Individual { get; set; }
 
         public string Locality { get; set; }
 
         public string ClusterName { get; set; }
 
-        public int YIC { get; set; }
+        public long ClusterId { get; set; }
 
-        public int YEI { get; set; }
+        public string GroupName { get; set; }
 
-        public int YCA { get; set; }
+        public int GroupId { get; set; }
+        
 
-        public int YAO { get; set; }
+        [Column("YIC")]
+        public int YouthInConversation { get; set; }
 
-        public int AttendedCC { get; set; }
+        [Column("YEI")]
+        public int YouthEnteredInstitute { get; set; }
 
-        public int TaughtCC { get; set; }
+        [Column("YCA")]
+        public int YouthCarryingOutActivities { get; set; }
 
-        public int AttendedJYG { get; set; }
+        [Column("YAO")]
+        public int YouthAccompanyingOthers { get; set; }
 
-        public int AnimatedJYG { get; set; }
+        [Column("AttendedCC")]
+        public int AttendedChildrensClass { get; set; }
 
-        public int AttendedSC { get; set; }
+        [Column("TaughtCC")]
+        public int TaughtChildrensClass { get; set; }
 
-        public int TutoredSC { get; set; }
+        [Column("AttendedJYG")]
+        public int AttendedJuniorYouthGroup { get; set; }
+
+        [Column("AnimatedJYG")]
+        public int AnimatedJuniorYouthGroup { get; set; }
+
+        [Column("AttendedSC")]
+        public int AttendedStudyCircle { get; set; }
+
+        [Column("TutoredSC")]
+        public int TutoredStudyCircle { get; set; }
 
 
         public override string ToString()
         {
             return
-                $"{Individual}, {Locality}, {ClusterName}, {YIC}, {YEI}, {YCA}, {YAO}, {AttendedCC}, {TaughtCC}, {AttendedJYG}, {AnimatedJYG}, {AttendedSC}, {TutoredSC}";
+                $"{Individual}, {Locality}, {ClusterName}, {GroupName}, {YouthInConversation}, {YouthEnteredInstitute}, {YouthCarryingOutActivities}, {YouthAccompanyingOthers}, {AttendedChildrensClass}, {TaughtChildrensClass}, {AttendedJuniorYouthGroup}, {AnimatedJuniorYouthGroup}, {AttendedStudyCircle}, {TutoredStudyCircle}";
         }
 
         public static string ListToString(IEnumerable<YouthContinuum> list)
         {
             var builder = new StringBuilder();
             builder.AppendLine(
-                $"{nameof(Individual)}, {nameof(Locality)}, {nameof(ClusterName)}, {nameof(YIC)}, {nameof(YEI)}, {nameof(YCA)}, {nameof(YAO)}, {nameof(AttendedCC)}, {nameof(TaughtCC)}, {nameof(AttendedJYG)}, {nameof(AnimatedJYG)}, {nameof(AttendedSC)}, {nameof(TutoredSC)}");
+                $"{nameof(Individual)}, {nameof(Locality)}, {nameof(ClusterName)}, {nameof(GroupName)} {nameof(YouthInConversation)}, {nameof(YouthEnteredInstitute)}, {nameof(YouthCarryingOutActivities)}, {nameof(YouthAccompanyingOthers)}, {nameof(AttendedChildrensClass)}, {nameof(TaughtChildrensClass)}, {nameof(AttendedJuniorYouthGroup)}, {nameof(AnimatedJuniorYouthGroup)}, {nameof(AttendedStudyCircle)}, {nameof(TutoredStudyCircle)}");
 
             foreach (var youth in list)
             {

@@ -2,7 +2,7 @@
 using System.Windows;
 using WK.Libraries.BetterFolderBrowserNS;
 
-namespace SRP.CustomReports.WPF
+namespace SRP.CustomReports.WPF.Forms
 {
     /// <summary>
     /// Interaction logic for FindPathToSrp.xaml

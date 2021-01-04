@@ -5,6 +5,13 @@ VisualStudioVersion = 15.0.28307.329
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SRP.CustomReports.WPF", "SRP.CustomReports.WPF\SRP.CustomReports.WPF.csproj", "{3163C83D-0B16-40A9-95A9-C028CED8F0D7}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{97152FAC-42B2-42CE-9D50-D979871D4670}"
+	ProjectSection(SolutionItems) = preProject
+		readme.md = readme.md
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SRP.CustomReports.Tests", "SRP.CustomReports.Tests\SRP.CustomReports.Tests.csproj", "{B3ECE333-CB23-4DF9-8933-2D539505C361}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +22,10 @@ Global
 		{3163C83D-0B16-40A9-95A9-C028CED8F0D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3163C83D-0B16-40A9-95A9-C028CED8F0D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3163C83D-0B16-40A9-95A9-C028CED8F0D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3ECE333-CB23-4DF9-8933-2D539505C361}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3ECE333-CB23-4DF9-8933-2D539505C361}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3ECE333-CB23-4DF9-8933-2D539505C361}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3ECE333-CB23-4DF9-8933-2D539505C361}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
